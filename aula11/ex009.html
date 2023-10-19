@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emissão de Passagem</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background-color: #fff;
+            position: relative;
+            height: 94vh;
+        }
+
+        div {
+            position: absolute;
+            background-color: lightgray;
+            width: 65vw;
+            height: 35vh;
+            left: 50%;
+            top: 50%;
+            border-radius: 10px;
+
+            transform: translate(-50%, -50%);
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        p#questionario {
+            display: inline;
+            padding-left: 20px;
+        }
+
+        p#txt {
+            padding: 15px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        input {
+            display: inline-block;
+            margin-left: 5%;
+        }
+
+        span {
+            display: block;
+            text-align: center;
+            margin-top: 45px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Identificação de Nacionalidade</h1>
+        <p id="txt">Para dar andamento na emissão da sua passagem, o país destino exige uma checagem de nacionalidade. Por favor responda o questionário abaixo:</p>
+        <p id="questionario">Qual a sua Nacionalidade: <input type="text" name="txtcont" id="txtcont"></p>
+        <input type="button" value="Verificação" onclick="nacionalidade()">
+        <span id="res">Resultado...</span>
+    </div>
+    <script>
+        function nacionalidade() {
+            var nac = document.querySelector('input#txtcont').value
+            var res = document.querySelector('span#res')
+            res.innerHTML = `Você é do ${nac}`
+            if (nac == 'Brasileiro') {
+                res.innerHTML += ', então sua entrada é permitida.' 
+            } else {
+                res.innerHTML += ', então sua entrada não é permitida nesse país.' 
+            }
+        }
+    </script>
+</body>
+</html>
