@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando conhecimentos JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculando o IMC</h1>
+    </header>
+    <article>
+        <div id="tit">
+            <p id="titc">Para calcular seu IMC preencha as informações abaixo:</p>
+        </div>
+        <div id="inf">
+            <p>
+                Sua altura: <input type="number" name="txtalt" id="txtalt" required minlength="3" min="0.5" max="2.5" step="0.01">
+                <br>
+                Seu peso: <input type="number" name="txtpes" id="txtpes" required minlength="2">
+            </p>
+            <p>
+                <input type="radio" name="sextip" id="m" checked>
+                <label for="m">Masculino</label>
+                <input type="radio" name="sextip" id="f">
+                <label for="f">Feminino</label>
+            </p>
+            <p>
+                <input type="button" value="Verificar" onclick="calcular()">
+            </p>
+            <p id="res">Resultado...</p>
+        </div>
+    </article>
+    <footer>
+        <p>&copy;MarcostCardoso</p>
+    </footer>
+    <script src="JS.js"></script>
+</body>
+</html>
