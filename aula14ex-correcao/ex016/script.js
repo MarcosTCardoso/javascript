@@ -1,26 +1,32 @@
-var ini, fim, pas, res 
+function contar() {
+    let ini = document.getElementById('txti')
+    let fim = document.getElementById('txtf')
+    let passo = document.getElementById('txtp')
+    let res = document.getElementById('res')
 
-function calcular() {
-    var ini = Number(document.getElementById('txtini').value)
-    var fim = Number(document.getElementById('txtfim').value)
-    var pas = Number(document.getElementById('txtpas').value)
-    var res = document.getElementById('res')
-    var val = ini
-    res.innerHTML = `Contando: <br>`
-    if (ini == 0) {
-        res.innerHTML = 'Impossível contar!'
-    } else if (ini > fim) {
-        res.innerHTML = 'Número de ínicio maior que o do fim, corrija para iniciar.'
-    } else if (pas == 0 || pas > 0) {
-        if (pas == 0) {
-            alert('Passo não pode ser 0, então vamos considerar o valor 1.')
-            pas = 1
+    if (ini.value.length == 0 || fim.value.length == 0 || passo.value.length == 0) {
+        res.innerHTML = "Impossível contar!"
+        //window.alert('[ERRO] Faltam dados!')
+    } else {
+        res.innerHTML = 'Contando...<br>'
+        let i = Number(ini.value)
+        let f = Number(fim.value)
+        let p = Number(passo.value)
+        if(p <= 0) {
+            alert('Passo inválido, considerando o passo 1')
+            p = 1
         }
-        while (val <= fim) {
-            res.innerHTML += `${val} 👉`
-            val += pas
+        if (i < f) {
+            //contagem crescente
+            for (let c = i; c <= f; c += p) {
+                res.innerHTML += `${c} \u{1F449}`
+            }
+        } else {
+            //Contagem decrescente
+            for(let c = i; c >= f; c -= p) {
+                res.innerHTML += ` ${c} \u{1F449}`
+            }
         }
-        res.innerHTML += `FIM!`
+        res.innerHTML += `\u{1F3C1}`
     }
-
 }

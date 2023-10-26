@@ -1,8 +1,13 @@
 function calcular() {
-    var num = Number(document.querySelector('input#txtnum').value)
+    var val = document.querySelector('input#txtnum').value
+    var num = Number(val)
     var res = document.querySelector('textarea#txttab')
-    res.value = `0 X ${num} = 0`
-    for (cont = 1; cont <=10; cont++) {
-        res.value += `\n${cont} X ${num} = ${cont * num}`
+    res.value = ``
+    if (val == '') {
+        alert('Digite um número')
+    } else {
+    for (cont = 0; cont <=10; cont++) {
+        res.value += `${cont} X ${num} = ${cont * num}\n`
     }
+}
 }
